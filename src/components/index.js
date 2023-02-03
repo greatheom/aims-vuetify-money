@@ -1,7 +1,7 @@
-import vuetifyMoney from "./VuetifyMoney.vue";
+import aimsVuetifyMoney from "./VuetifyMoney.vue";
 
 function install(Vue) {
-  Vue.component("aims_vuetify-money", vuetifyMoney);
+  Vue.component("aims-vuetify-money", aimsVuetifyMoney);
 }
 
 export default install;

@@ -2,14 +2,14 @@
   <v-app id="inspire">
     <v-card-title>
       <v-toolbar dark class="elevation-2" color="cyan">
-        <v-toolbar-title>vuetify-money</v-toolbar-title>
+        <v-toolbar-title>aims-vuetify-money</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
     <v-card-text>
       <v-container>
         <v-row>
           <v-col cols="4" sm="4" md="4">
-            <vuetify-money
+            <aims-vuetify-money
               v-model="value1"
               v-bind:label="label1"
               v-bind:readonly="readonly1"
@@ -28,7 +28,7 @@
         </v-row>
         <v-row>
           <v-col cols="4" sm="4" md="4">
-            <vuetify-money
+            <aims-vuetify-money
               v-model="value2"
               v-bind:label="label2"
               v-bind:readonly="readonly2"
@@ -53,7 +53,7 @@ import VuetifyMoney from "./components/VuetifyMoney.vue";
 export default {
   name: "app",
   components: {
-    "aims_vuetify-money": VuetifyMoney
+    "aims-vuetify-money": VuetifyMoney
   },
   data: () => ({
     value1: "1250.03",
