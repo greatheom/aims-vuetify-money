@@ -15,12 +15,12 @@ v-model:
 
 ## Install
 ```
-$ npm install vuetify-money --save
+$ npm install aims_vuetify-money --save
 
 Register component:
 1- Create a src/plugins/vuetify-money.js file with the following content:
 import Vue from "vue";
-import VuetifyMoney from "vuetify-money";
+import VuetifyMoney from "aims_vuetify-money";
 Vue.use(VuetifyMoney);
 export default VuetifyMoney;
 

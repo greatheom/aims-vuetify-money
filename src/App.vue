@@ -53,7 +53,7 @@ import VuetifyMoney from "./components/VuetifyMoney.vue";
 export default {
   name: "app",
   components: {
-    "vuetify-money": VuetifyMoney
+    "aims_vuetify-money": VuetifyMoney
   },
   data: () => ({
     value1: "1250.03",
