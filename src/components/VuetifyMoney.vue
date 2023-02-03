@@ -145,69 +145,75 @@ export default {
       return number;
     },
     machineFormat(number) {
-      if (number) {
-        number = this.cleanNumber(number);
-        // Ajustar quantidade de zeros à esquerda
-        number = number.padStart(parseInt(this.options.precision) + 1, "0");
-        // Incluir ponto na casa correta, conforme a precisão configurada
-        number =
-          number.substring(
-            0,
-            number.length - parseInt(this.options.precision)
-          ) +
-          "." +
-          number.substring(
-            number.length - parseInt(this.options.precision),
-            number.length
-          );
-        if (isNaN(number)) {
-          number = this.valueWhenIsEmpty;
-        }
-      } else {
-        number = this.valueWhenIsEmpty;
-      }
-      if (this.options.precision === 0) {
-        number = this.cleanNumber(number);
-      }
-      return number;
+
+      let result = ""
+      result = parseInt(number.replace(/,/g,""));
+      return result;
+
+      // if (number) {
+      //   number = this.cleanNumber(number);
+      //   // Ajustar quantidade de zeros à esquerda
+      //   number = number.padStart(parseInt(this.options.precision) + 1, "0");
+      //   // Incluir ponto na casa correta, conforme a precisão configurada
+      //   number =
+      //     number.substring(
+      //       0,
+      //       number.length - parseInt(this.options.precision)
+      //     ) +
+      //     "." +
+      //     number.substring(
+      //       number.length - parseInt(this.options.precision),
+      //       number.length
+      //     );
+      //   if (isNaN(number)) {
+      //     number = this.valueWhenIsEmpty;
+      //   }
+      // } else {
+      //   number = this.valueWhenIsEmpty;
+      // }
+      // if (this.options.precision === 0) {
+      //   number = this.cleanNumber(number);
+      // }
+      // return number;
     },
     keyPress($event) {
-      // console.log($event.keyCode); //keyCodes value
-      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
-      // if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
-      if (keyCode < 48 || keyCode > 57) {
-        // 46 is dot
-        $event.preventDefault();
-      }
-      if (this.targetLength()) {
-        $event.preventDefault();
-      }
+      // // console.log($event.keyCode); //keyCodes value
+      // let keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      // // if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+      // if (keyCode < 48 || keyCode > 57) {
+      //   // 46 is dot
+      //   $event.preventDefault();
+      // }
+      // if (this.targetLength()) {
+      //   $event.preventDefault();
+      // }
     },
     // Retira todos os caracteres não numéricos e zeros à esquerda
     cleanNumber: function(value) {
-      let result = "";
-      if (value) {
-        let flag = false;
-        let arrayValue = value.toString().split("");
-        for (var i = 0; i < arrayValue.length; i++) {
-          if (this.isInteger(arrayValue[i])) {
-            if (!flag) {
-              // Retirar zeros à esquerda
-              if (arrayValue[i] !== "0") {
-                result = result + arrayValue[i];
-                flag = true;
-              }
-            } else {
-              result = result + arrayValue[i];
-            }
-          }
-        }
-      }
-      return result;
+      // let result = "";
+      // if (value) {
+      //   let flag = false;
+      //   let arrayValue = value.toString().split("");
+      //   for (var i = 0; i < arrayValue.length; i++) {
+      //     if (this.isInteger(arrayValue[i])) {
+      //       if (!flag) {
+      //         // Retirar zeros à esquerda
+      //         if (arrayValue[i] !== "0") {
+      //           result = result + arrayValue[i];
+      //           flag = true;
+      //         }
+      //       } else {
+      //         result = result + arrayValue[i];
+      //       }
+      //     }
+      //   }
+      // }
+      // return result;
     },
     isInteger(value) {
       let result = false;
-      if (Number.isInteger(parseInt(value))) {
+      // if (Number.isInteger(parseInt(value))) { 마이너스 입력을 위한 수정
+      if (value == '-' || Number.isInteger(parseInt(value))) {
         result = true;
       }
       return result;
