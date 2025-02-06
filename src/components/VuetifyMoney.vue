@@ -19,6 +19,7 @@
       v-bind="properties"
       v-on:keypress="keyPress"
       v-on:blur="onBlur"
+      v-on:focus="$emit('focus')"
     ></v-text-field>
   </div>
 </template>
